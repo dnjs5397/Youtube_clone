@@ -1,11 +1,17 @@
 import express from 'express';
+import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
 
 const PORT = 4000;
 const app = express();
-const homeResponse = (req, res) => {
-    res.send("기본 응답입니다.");
-}
+app.use(morgan('dev'));
 
-app.listen(4000, () => console.log(`Server is started at "http://localhost:${PORT}"`));
 
-app.get('/', homeResponse);
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRouter);
+
+app.listen(PORT, () => 
+    console.log(`Server is started at "http://localhost:${PORT}"`));
