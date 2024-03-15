@@ -1,0 +1,9 @@
+mixin video(info)
+    div
+    h4
+        a(href=`/videos/${info.id}`)=info.title
+    ul
+        li 평점 : #{info.rating}/5
+        li 댓글 : #{info.comments}
+        li 조회수 : #{info.views}
+        li 업로드일 : #{info.createAt}

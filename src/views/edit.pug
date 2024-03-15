@@ -1,0 +1,8 @@
+extends base.pug
+
+
+block content
+    h4 동영상 정보 수정
+    form(method="POST")
+        input(name="title" placeholder="동영상 제목", value=video.title, required='true')
+        input(value='저장', type='submit')

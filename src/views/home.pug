@@ -1,0 +1,10 @@
+extends base.pug
+include mixins/video
+
+block content
+    h2 오늘의 인기 동영상을 확인해보세요!!
+
+    each video in videos
+        +video(video)
+    else
+        li NULL
